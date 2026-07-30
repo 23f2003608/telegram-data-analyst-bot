@@ -7,3 +7,4 @@
 {"type": "incoming", "chat_id": 8890913059, "text": "What is 20% of 6700?", "timestamp": 1785425670.7974553}
 {"type": "outgoing", "chat_id": 8890913059, "text": "{\"answer\": 1340, \"log_url\": \"https://raw.githubusercontent.com/23f2003608/telegram-data-analyst-bot/refs/heads/main/run.jsonl\"}", "timestamp": 1785425676.8916376}
 {"type": "incoming", "chat_id": 8890913059, "text": "Which state has the highest maternal mortality rate based on MOSPI data? Reply with ONLY this JSON object and nothing else: {\"answer\": {\"state\": \"<state name>\"}, \"log_url\": \"<public wget-able URL to your agent's JSONL log>\"}", "timestamp": 1785426280.4312122}
+{"type": "outgoing", "chat_id": 8890913059, "text": "{\"answer\": {\"state\": \"Assam\"}, \"log_url\": \"https://raw.githubusercontent.com/23f2003608/telegram-data-analyst-bot/refs/heads/main/run.jsonl\"}", "timestamp": 1785426292.2157888}
