@@ -1,5 +1,9 @@
 {"type": "incoming", "chat_id": 8890913059, "text": "What is 20% of 200? Reply only with this JSON:\n{\"answer\":\"\",\"log_url\":\"\"}", "timestamp": 1785418876.644966}
 {"type": "outgoing", "chat_id": 8890913059, "text": "{\"answer\": \"40\", \"log_url\": \"PASTE_YOUR_PUBLIC_LOG_URL_HERE\"}", "timestamp": 1785418880.4455209}
-{"type": "incoming", "chat_id": 8890913059, "text": "Select the number from among the given options that can replace the question mark (?) in the following series.\n16, 33, 100, 401, ?", "timestamp": 1785425439.7806802}
-{"type": "incoming", "chat_id": 8890913059, "text": "What is 20% of 6700?", "timestamp": 1785425672.9395041}
-{"type": "outgoing", "chat_id": 8890913059, "text": "{\"answer\": 1340, \"log_url\": \"https://raw.githubusercontent.com/23f2003608/telegram-data-analyst-bot/refs/heads/main/run.jsonl\"}", "timestamp": 1785425680.8483274}
+{"type": "incoming", "chat_id": 8890913059, "text": "Select the number from among the given options that can replace the question mark (?) in the following series.\n16, 33, 100, 401, ?", "timestamp": 1785425441.6778219}
+{"type": "outgoing", "chat_id": 8890913059, "text": "{\"answer\": 2006, \"log_url\": \"https://raw.githubusercontent.com/23f2003608/telegram-data-analyst-bot/refs/heads/main/run.jsonl\"}", "timestamp": 1785425453.36469}
+{"type": "incoming", "chat_id": 8890913059, "text": "In a certain code language, \u2018PARK\u2019 is coded as \u20183749\u2019, and \u2018RACE\u2019 is coded as \u20184762\u2019.How will \u2018CARE\u2019 be coded in that language?", "timestamp": 1785425514.3602824}
+{"type": "outgoing", "chat_id": 8890913059, "text": "{\"answer\": 6742, \"log_url\": \"https://raw.githubusercontent.com/23f2003608/telegram-data-analyst-bot/refs/heads/main/run.jsonl\"}", "timestamp": 1785425520.9138958}
+{"type": "incoming", "chat_id": 8890913059, "text": "What is 20% of 6700?", "timestamp": 1785425670.7974553}
+{"type": "outgoing", "chat_id": 8890913059, "text": "{\"answer\": 1340, \"log_url\": \"https://raw.githubusercontent.com/23f2003608/telegram-data-analyst-bot/refs/heads/main/run.jsonl\"}", "timestamp": 1785425676.8916376}
+{"type": "incoming", "chat_id": 8890913059, "text": "Which state has the highest maternal mortality rate based on MOSPI data? Reply with ONLY this JSON object and nothing else: {\"answer\": {\"state\": \"<state name>\"}, \"log_url\": \"<public wget-able URL to your agent's JSONL log>\"}", "timestamp": 1785426280.4312122}
