@@ -12,6 +12,9 @@ TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 AIPIPE_TOKEN = os.environ["AIPIPE_TOKEN"]
 LOG_URL = os.environ["LOG_URL"]  
 GITHUB_TOKEN = os.environ["GITHUB_TOKEN"]
+GITHUB_OWNER = "23f2003608"
+GITHUB_REPO = "telegram-data-analyst-bot"
+GITHUB_FILE = "run.jsonl"
 
 client = OpenAI(base_url="https://aipipe.org/openai/v1", api_key=AIPIPE_TOKEN)
 LOG_FILE = "run.jsonl"
@@ -20,10 +23,13 @@ LOG_FILE = "run.jsonl"
 # "answer the LAST message" still needs the earlier ones for context.
 conversation_history = {}
 
-def log_event(event: dict):
+def log_event(event):
     event["timestamp"] = time.time()
+
     with open(LOG_FILE, "a") as f:
         f.write(json.dumps(event) + "\n")
+
+    sync_log_to_github()
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_id = update.effective_chat.id
@@ -65,6 +71,38 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log_event({"type": "outgoing", "chat_id": chat_id, "text": final_reply})
     await update.message.reply_text(final_reply)
 
+def sync_log_to_github():
+    url = f"https://api.github.com/repos/{GITHUB_OWNER}/{GITHUB_REPO}/contents/{GITHUB_FILE}"
+
+    headers = {
+        "Authorization": f"Bearer {GITHUB_TOKEN}",
+        "Accept": "application/vnd.github+json",
+    }
+
+    # Get current file SHA
+    r = requests.get(url, headers=headers)
+
+    sha = None
+    if r.status_code == 200:
+        sha = r.json()["sha"]
+
+    with open(LOG_FILE, "rb") as f:
+        content = base64.b64encode(f.read()).decode()
+
+    payload = {
+        "message": "Update run.jsonl",
+        "content": content,
+        "branch": "main",
+    }
+
+    if sha:
+        payload["sha"] = sha
+
+    r = requests.put(url, headers=headers, json=payload)
+
+    if r.status_code not in (200, 201):
+        print("GitHub update failed:", r.text)
+        
 app = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 print("Bot is running... (Ctrl+C to stop)")
